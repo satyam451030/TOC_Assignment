@@ -1,0 +1,63 @@
+export const PRESETS_DATA = [
+  { group: 'Counting aⁿbᵐ' },
+  { id: 'anbn', name: 'aⁿbⁿ', desc: "equal a's and b's", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aaabbb',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q1','ε','Z','q2','Z']] },
+  { id: 'anbnstrict', name: 'aⁿbⁿ (n≥1)', desc: 'strict, no empty string', states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aabb',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q1','ε','Z','q2','Z']] },
+  { id: 'anbm_nlem', name: 'aⁿbᵐ (n≤m)', desc: "more b's than a's", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aabbb',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q1','b','Z','q1','Z'],['q0','b','Z','q1','Z'],['q1','ε','Z','q2','Z']] },
+  { id: 'anbm_ngem', name: 'aⁿbᵐ (n≥m)', desc: "more a's than b's", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aaabb',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q0','ε','A','q2','A'],['q0','ε','Z','q2','Z'],['q1','ε','A','q2','A'],['q1','ε','Z','q2','Z']] },
+  { id: 'anb2n', name: 'aⁿb²ⁿ', desc: "b's are twice a's", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aabbbb',
+    T: [['q0','a','Z','q0','AAZ'],['q0','a','A','q0','AAA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q1','ε','Z','q2','Z']] },
+  { id: 'a2nbn', name: 'a²ⁿbⁿ', desc: "a's are twice b's", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aaaabb',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','ε'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q1','ε','A','q2','A'],['q1','ε','Z','q2','Z']] },
+  { id: 'anb3n', name: 'aⁿb³ⁿ', desc: "b's are triple a's", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aabbbbbb',
+    T: [['q0','a','Z','q0','AAAZ'],['q0','a','A','q0','AAAA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q1','ε','Z','q2','Z']] },
+  { id: 'morea', name: '|a| > |b|', desc: "strictly more a's than b's", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aaab',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q0','ε','A','q2','A'],['q1','ε','A','q2','A']] },
+  { id: 'equalab_any', name: "equal a's & b's", desc: 'equal counts, any order', states: ['q0','q1'], start: 'q0', accept: ['q1'], init: 'Z', test: 'abba',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','a','B','q0','ε'],['q0','b','Z','q0','BZ'],['q0','b','B','q0','BB'],['q0','b','A','q0','ε'],['q0','ε','Z','q1','Z']] },
+  { id: 'not_anbn', name: '|a| ≠ |b|', desc: 'unequal counts of a and b', states: ['q0','q1'], start: 'q0', accept: ['q1'], init: 'Z', test: 'aab',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','a','B','q0','ε'],['q0','b','Z','q0','BZ'],['q0','b','B','q0','BB'],['q0','b','A','q0','ε'],['q0','ε','A','q1','A'],['q0','ε','B','q1','B']] },
+
+  { group: 'Multiple Symbols' },
+  { id: 'anbmcn', name: 'aⁿbᵐcⁿ', desc: "equal a's and c's, any b's", states: ['q0','q1','q2','q3'], start: 'q0', accept: ['q3'], init: 'Z', test: 'aaabbbccc',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','A'],['q0','b','Z','q1','Z'],['q0','ε','Z','q3','Z'],['q1','b','A','q1','A'],['q1','b','Z','q1','Z'],['q1','c','A','q2','ε'],['q1','ε','Z','q3','Z'],['q2','c','A','q2','ε'],['q2','ε','Z','q3','Z']] },
+  { id: 'anbncm', name: 'aⁿbⁿcᵐ', desc: "equal a,b then any c's", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aabbcc',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q1','ε','Z','q2','Z'],['q2','c','Z','q2','Z']] },
+  { id: 'ambncn', name: 'aᵐbⁿcⁿ', desc: "any a's then equal b,c", states: ['q0','q1','q2','q3'], start: 'q0', accept: ['q3'], init: 'Z', test: 'aabbbccc',
+    T: [['q0','a','Z','q0','Z'],['q0','b','Z','q1','BZ'],['q0','ε','Z','q3','Z'],['q1','b','B','q1','BB'],['q1','b','Z','q1','BZ'],['q1','c','B','q2','ε'],['q2','c','B','q2','ε'],['q2','ε','Z','q3','Z']] },
+  { id: 'anbmcmdn', name: 'aⁿbᵐcᵐdⁿ', desc: 'nested: equal a,d and equal b,c', states: ['q0','q1','q2','q3','q4'], start: 'q0', accept: ['q4'], init: 'Z', test: 'aabbccdd',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','BA'],['q0','b','Z','q1','BZ'],['q0','d','A','q3','ε'],['q0','ε','Z','q4','Z'],['q1','b','A','q1','BA'],['q1','b','B','q1','BB'],['q1','c','B','q2','ε'],['q2','c','B','q2','ε'],['q2','d','A','q3','ε'],['q3','d','A','q3','ε'],['q3','ε','Z','q4','Z']] },
+  { id: 'anbn_or_cndn', name: 'aⁿbⁿ ∪ cⁿdⁿ', desc: 'union of two languages', states: ['q0','q1','q2','q3','q4','q5'], start: 'q0', accept: ['q5'], init: 'Z', test: 'aabb',
+    T: [['q0','a','Z','q1','AZ'],['q1','a','A','q1','AA'],['q1','b','A','q2','ε'],['q2','b','A','q2','ε'],['q2','ε','Z','q5','Z'],['q0','c','Z','q3','CZ'],['q3','c','C','q3','CC'],['q3','d','C','q4','ε'],['q4','d','C','q4','ε'],['q4','ε','Z','q5','Z'],['q0','ε','Z','q5','Z']] },
+
+  { group: 'Palindromes & Reversals' },
+  { id: 'palindrome', name: 'even palindrome', desc: 'even-length palindromes over {a,b}', states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'abba',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','a','B','q0','AB'],['q0','b','Z','q0','BZ'],['q0','b','A','q0','BA'],['q0','b','B','q0','BB'],['q0','ε','A','q1','A'],['q0','ε','B','q1','B'],['q1','a','A','q1','ε'],['q1','b','B','q1','ε'],['q1','ε','Z','q2','Z']] },
+  { id: 'oddpal', name: 'odd palindrome', desc: 'odd-length palindromes over {a,b}', states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'ababa',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','a','B','q0','AB'],['q0','b','Z','q0','BZ'],['q0','b','A','q0','BA'],['q0','b','B','q0','BB'],['q0','a','A','q1','ε'],['q0','a','Z','q1','Z'],['q0','b','B','q1','ε'],['q0','b','Z','q1','Z'],['q1','a','A','q1','ε'],['q1','b','B','q1','ε'],['q1','ε','Z','q2','Z']] },
+  { id: 'wcwr', name: 'wcwᴿ', desc: 'w·c·reverse(w) over {a,b,c}', states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aabacabaa',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','a','B','q0','AB'],['q0','b','Z','q0','BZ'],['q0','b','A','q0','BA'],['q0','b','B','q0','BB'],['q0','c','A','q1','A'],['q0','c','B','q1','B'],['q0','c','Z','q1','Z'],['q1','a','A','q1','ε'],['q1','b','B','q1','ε'],['q1','ε','Z','q2','Z']] },
+  { id: 'wwrev', name: 'wwᴿ (even pal)', desc: 'string followed by its reverse', states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'abbaabba',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','a','B','q0','AB'],['q0','b','Z','q0','BZ'],['q0','b','A','q0','BA'],['q0','b','B','q0','BB'],['q0','ε','A','q1','A'],['q0','ε','B','q1','B'],['q1','a','A','q1','ε'],['q1','b','B','q1','ε'],['q1','ε','Z','q2','Z']] },
+
+  { group: 'Brackets' },
+  { id: 'balanced', name: '()[]{} balanced', desc: 'all 3 bracket types balanced', states: ['q0','q1'], start: 'q0', accept: ['q1'], init: 'Z', test: '[((){})]',
+    T: [['q0','(','Z','q0','PZ'],['q0','(','P','q0','PP'],['q0','(','B','q0','PB'],['q0','(','C','q0','PC'],['q0',')','P','q0','ε'],['q0','[','Z','q0','BZ'],['q0','[','P','q0','BP'],['q0','[','B','q0','BB'],['q0','[','C','q0','BC'],['q0',']','B','q0','ε'],['q0','{','Z','q0','CZ'],['q0','{','P','q0','CP'],['q0','{','B','q0','CB'],['q0','{','C','q0','CC'],['q0','}','C','q0','ε'],['q0','ε','Z','q1','Z']] },
+
+  { group: 'Prefix / Suffix' },
+  { id: 'prefix_anbn', name: 'prefix aⁿbⁿ', desc: "strings that start with aⁿbⁿ", states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: 'aabbcd',
+    T: [['q0','a','Z','q0','AZ'],['q0','a','A','q0','AA'],['q0','b','A','q1','ε'],['q1','b','A','q1','ε'],['q1','ε','Z','q2','Z'],['q2','a','Z','q2','Z'],['q2','b','Z','q2','Z'],['q2','c','Z','q2','Z'],['q2','d','Z','q2','Z']] },
+
+  { group: 'Number / Binary' },
+  { id: 'div2', name: 'binary ÷ 2', desc: 'binary strings divisible by 2', states: ['q0','q1','q2'], start: 'q0', accept: ['q2'], init: 'Z', test: '1010',
+    T: [['q0','0','Z','q1','Z'],['q0','1','Z','q0','Z'],['q1','0','Z','q1','Z'],['q1','1','Z','q0','Z'],['q1','ε','Z','q2','Z']] },
+  { id: 'div3', name: 'binary ÷ 3', desc: 'binary strings divisible by 3', states: ['q0','q1','q2','q3'], start: 'q0', accept: ['q3'], init: 'Z', test: '110',
+    T: [['q0','0','Z','q0','Z'],['q0','1','Z','q1','Z'],['q1','0','Z','q2','Z'],['q1','1','Z','q0','Z'],['q2','0','Z','q1','Z'],['q2','1','Z','q2','Z'],['q0','ε','Z','q3','Z']] },
+];
+
+export function getTransitions(preset) {
+  return preset.T.map(t => ({ from: t[0], input: t[1], top: t[2], to: t[3], push: t[4] }));
+}

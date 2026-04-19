@@ -1,0 +1,15 @@
+export const EXAMPLES = [
+  "equal number of a's and b's",
+  "strings where a's count is double b's",
+  "aⁿbᵐcⁿ — equal a's and c's",
+  "balanced parentheses () [] {}",
+  "aⁿbⁿcᵐ — equal a's and b's then any c's",
+  "aᵐbⁿcⁿ — any a's then equal b's and c's",
+  "palindromes over a and b",
+  "strings with more a's than b's",
+  "aⁿbᵐcᵐdⁿ — nested structure",
+  "binary strings divisible by 3",
+  "wcwᴿ — word c reverse",
+  "strings where |a|≠|b|",
+  "aⁿb²ⁿ — b's are twice a's",
+];
