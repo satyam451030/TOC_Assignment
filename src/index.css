@@ -441,10 +441,35 @@ select option { background: var(--bg3); }
 /* ── Responsive ── */
 @media (max-width: 699px) {
   .sidebar { display: none; }
-  .mobile-hdr { display: flex; }
-  .tab-nav { display: flex; }
-  .fab-row.show { display: flex; }
+  .mobile-hdr { display: flex; z-index: 100; position: sticky; top: 0; }
+  .tab-nav { display: flex; z-index: 90; position: sticky; top: 48px; border-top: 1px solid var(--border); }
+  .fab-row.show { display: flex; z-index: 100; position: sticky; bottom: 0; }
+  
+  .logo { font-size: 1.1rem; }
+  .logo span { font-size: 0.9rem; }
+  
+  .sim-body { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+  .sim-left { order: 1; border-bottom: 1px solid var(--border); }
+  .stack-col { 
+    order: 2; border-left: none; padding: 0.5rem; 
+    flex-direction: row; min-width: 100%; max-width: 100%; height: 80px;
+    align-items: center; gap: 10px; background: var(--bg2);
+  }
+  .stack-top-lbl, .stack-bot-lbl { display: none; }
+  .stack-cells { flex-direction: row-reverse; justify-content: flex-start; align-items: center; }
+  .scell { min-width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; }
+
+  .ai-wrap, .presets-wrap, .config-wrap, .sim-pane, .batch-wrap { padding: 0.5rem; }
+  .btn, .tnav, .stab, .chip, .preset-item { min-height: 44px; display: flex; align-items: center; }
+  input, select, textarea { min-height: 44px; font-size: 16px; } /* Prevent auto-zoom on iOS */
+  
+  .row { flex-direction: column; }
+  .row > .sm { flex: 1; }
+  
+  .diag-bar { gap: 4px; padding: 0.4rem; }
+  .diag-bar .btn { padding: 5px 10px; font-size: 11px; }
 }
+
 @media (min-width: 700px) {
   .mobile-hdr { display: none; }
   .tab-nav { display: none; }
