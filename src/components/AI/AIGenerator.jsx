@@ -116,7 +116,7 @@ export default function AIGenerator({ onGoSimulate }) {
   const [result, setResult] = useState(null);
 
   async function callGroq() {
-    const resp = await fetch('/api/groq/openai/v1/chat/completions', {
+    const resp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
